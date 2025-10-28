@@ -1,0 +1,12 @@
+{
+  "examples": [
+    {
+      "url": "Index.html",
+      "thumb": "resources/logo_small.png",
+      "label": "Index"
+    }
+  ],
+  "VR": [],
+  "showcase": [],
+  "thirdparty": []
+}

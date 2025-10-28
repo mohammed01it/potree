@@ -1,0 +1,247 @@
+{
+  "name": "Potree Manager Style System",
+  "version": "1.0.0",
+  "description": "نظام الألوان والأنماط المرئية لتطبيق Potree Manager",
+  "author": "Potree Development Team",
+  "colors": {
+    "primary": {
+      "main": "#1E88E5",
+      "dark": "#1565C0",
+      "light": "#42A5F5",
+      "description": "اللون الأساسي للعلامة التجارية"
+    },
+    "secondary": {
+      "main": "#FF9800",
+      "dark": "#F57C00",
+      "light": "#FFB74D",
+      "description": "اللون الثانوي للتمييز والتأكيد"
+    },
+    "background": {
+      "primary": "#F5F7FA",
+      "secondary": "#FFFFFF",
+      "description": "ألوان الخلفية الرئيسية"
+    },
+    "surface": {
+      "main": "#FFFFFF",
+      "elevated": "#FAFBFC",
+      "description": "أسطح المكونات والبطاقات"
+    },
+    "text": {
+      "primary": "#212121",
+      "secondary": "#757575",
+      "disabled": "#BDBDBD",
+      "description": "ألوان النصوص بدرجات مختلفة"
+    },
+    "border": {
+      "main": "#E0E0E0",
+      "light": "#F5F5F5",
+      "dark": "#BDBDBD",
+      "description": "ألوان الحدود والفواصل"
+    },
+    "dark_theme": {
+      "background": "#2C3E50",
+      "surface": "#34495E",
+      "card": "#3A4A5C",
+      "text": "#ECF0F1",
+      "text_secondary": "#BDC3C7",
+      "border": "#4A5568",
+      "input": "#2D3748",
+      "description": "ألوان الوضع المظلم"
+    },
+    "status": {
+      "success": "#4CAF50",
+      "warning": "#FF9800",
+      "error": "#F44336",
+      "info": "#2196F3",
+      "description": "ألوان حالات النظام"
+    }
+  },
+  "typography": {
+    "font_family": {
+      "primary": ["Tajawal", "Cairo"],
+      "fallback": ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+      "description": "خطوط النظام العربية مع البدائل"
+    },
+    "font_sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "2rem",
+      "4xl": "2.5rem",
+      "description": "أحجام الخطوط المعيارية"
+    },
+    "font_weights": {
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "description": "أوزان الخطوط"
+    },
+    "line_heights": {
+      "tight": 1.2,
+      "normal": 1.6,
+      "relaxed": 1.8,
+      "description": "ارتفاع الأسطر"
+    }
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px",
+    "description": "نظام المسافات والحشو"
+  },
+  "border_radius": {
+    "none": "0px",
+    "sm": "4px",
+    "base": "6px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "full": "9999px",
+    "description": "نصف أقطار الزوايا"
+  },
+  "shadows": {
+    "sm": "0 1px 3px rgba(0,0,0,0.1)",
+    "base": "0 2px 6px rgba(0,0,0,0.1)",
+    "md": "0 4px 12px rgba(0,0,0,0.1)",
+    "lg": "0 4px 16px rgba(0,0,0,0.15)",
+    "xl": "0 8px 25px rgba(0,0,0,0.15)",
+    "description": "ظلال المكونات"
+  },
+  "transitions": {
+    "fast": "150ms ease",
+    "normal": "300ms ease",
+    "slow": "500ms ease",
+    "description": "مدة الانتقالات والتحريكات"
+  },
+  "components": {
+    "navbar": {
+      "height": "64px",
+      "background": "var(--surface)",
+      "border_bottom": "1px solid var(--border)",
+      "description": "شريط التنقل العلوي"
+    },
+    "cards": {
+      "background": "var(--surface)",
+      "border": "1px solid var(--border)",
+      "border_radius": "var(--radius-lg)",
+      "shadow": "var(--shadow)",
+      "padding": "var(--spacing-lg)",
+      "description": "بطاقات المحتوى"
+    },
+    "buttons": {
+      "primary": {
+        "background": "linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)",
+        "color": "#FFFFFF",
+        "padding": "var(--spacing-md) var(--spacing-lg)",
+        "border_radius": "var(--radius)",
+        "description": "الأزرار الأساسية"
+      },
+      "secondary": {
+        "background": "var(--surface)",
+        "color": "var(--text-primary)",
+        "border": "1px solid var(--border)",
+        "padding": "var(--spacing-md) var(--spacing-lg)",
+        "border_radius": "var(--radius)",
+        "description": "الأزرار الثانوية"
+      }
+    },
+    "forms": {
+      "input": {
+        "background": "var(--surface)",
+        "border": "1px solid var(--border)",
+        "border_radius": "var(--radius)",
+        "padding": "var(--spacing-sm) var(--spacing-md)",
+        "color": "var(--text-primary)",
+        "description": "حقول الإدخال"
+      },
+      "focus": {
+        "border_color": "var(--primary)",
+        "box_shadow": "0 0 0 3px rgba(30, 136, 229, 0.1)",
+        "description": "حالة التركيز"
+      }
+    },
+    "tables": {
+      "header": {
+        "background": "var(--surface)",
+        "color": "var(--text-primary)",
+        "font_weight": 600,
+        "border_bottom": "2px solid var(--border)",
+        "description": "رأس الجدول"
+      },
+      "row": {
+        "even_background": "var(--background)",
+        "hover_background": "var(--surface)",
+        "border_bottom": "1px solid var(--border)",
+        "description": "صفوف الجدول"
+      }
+    }
+  },
+  "breakpoints": {
+    "sm": "480px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1200px",
+    "description": "نقاط التوقف للتصميم المتجاوب"
+  },
+  "icons": {
+    "style": "emoji",
+    "brand": "📦",
+    "folder": "📂",
+    "upload": "☁️",
+    "search": "🔍",
+    "theme_light": "☀️",
+    "theme_dark": "🌙",
+    "file": "📄",
+    "tag": "🏷️",
+    "clock": "⏰",
+    "database": "💾",
+    "chart": "📊",
+    "inbox": "📥",
+    "description": "نظام الأيقونات المستخدم (رموز تعبيرية)"
+  },
+  "animations": {
+    "fade_in": {
+      "duration": "0.6s",
+      "easing": "ease-out",
+      "keyframes": "fadeIn",
+      "description": "تحريك الظهور التدريجي"
+    },
+    "hover_lift": {
+      "transform": "translateY(-2px)",
+      "shadow": "0 8px 25px var(--shadow-lg)",
+      "description": "تحريك الرفع عند التمرير"
+    }
+  },
+  "accessibility": {
+    "focus_visible": {
+      "outline": "2px solid var(--primary)",
+      "outline_offset": "2px",
+      "description": "مؤشر التركيز لإمكانية الوصول"
+    },
+    "reduced_motion": {
+      "respect_preference": true,
+      "description": "احترام تفضيلات تقليل الحركة"
+    }
+  },
+  "rtl_support": {
+    "direction": "rtl",
+    "text_align": "right",
+    "description": "دعم اللغة العربية والكتابة من اليمين لليسار"
+  },
+  "design_tokens": {
+    "container_max_width": "1200px",
+    "navbar_height": "64px",
+    "sidebar_width": "280px",
+    "content_padding": "var(--spacing-xl)",
+    "description": "الرموز المميزة للتصميم"
+  }
+}

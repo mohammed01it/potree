@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - PointVista 3D Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+      <link rel="icon" href="../../resources/pointvista_logo.png" onerror="this.href='../../resources/logo_small.png'">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Login Card -->
+        <div class="login-card">
+            <!-- Header -->
+            <div class="login-header">
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <img src="../../resources/pointvista_logo.png" alt="PointVista 3D" class="logo" onerror="this.onerror=null;this.src='../../resources/logo_small.png';">
+                    </div>
+                </div>
+                <h1 class="login-title">مرحباً بك</h1>
+                <p class="login-subtitle">سجل الدخول للوصول إلى مدير ملفات PointVista 3D</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <!-- Alert Message -->
+                <div id="alertMessage" class="alert-message" style="display: none;">
+                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-text">اسم المستخدم أو كلمة المرور غير صحيحة</span>
+                </div>
+
+                <!-- Username Field -->
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username"
+                            placeholder="اسم المستخدم" 
+                            required 
+                            class="form-input"
+                            autocomplete="username"
+                        >
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password"
+                            placeholder="كلمة المرور" 
+                            required 
+                            class="form-input"
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="toggle-password" id="togglePassword" title="إظهار/إخفاء كلمة المرور">
+                            <span class="eye-icon">👁️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Options Row -->
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkmark">✓</span>
+                        <span class="checkbox-text">تذكرني</span>
+                    </label>
+                    <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-button" id="loginButton">
+                    <span class="button-text">تسجيل الدخول</span>
+                    <div class="button-loader" style="display: none;">
+                        <div class="loader-spinner"></div>
+                    </div>
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                <p class="footer-text">
+                    نظام إدارة السحابات النقطية • 
+                    <span class="version">الإصدار 1.8.2</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

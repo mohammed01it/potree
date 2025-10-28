@@ -1,0 +1,246 @@
+{
+  "fileManager": {
+    "version": "2.0.0",
+    "name": "Potree File Manager Enhanced",
+    "description": "مدير ملفات محسن لتطبيق Potree مع تصميم حديث وميزات متقدمة",
+    "author": "Potree Development Team",
+    "lastUpdated": "2025-09-04",
+    
+    "features": {
+      "dragAndDrop": true,
+      "keyboardShortcuts": true,
+      "darkTheme": true,
+      "responsiveDesign": true,
+      "advancedNotifications": true,
+      "progressAnimations": true,
+      "searchFunctionality": true,
+      "tooltips": true,
+      "accessibility": true,
+      "rtlSupport": true
+    },
+    
+    "performance": {
+      "chunkSize": "10MB",
+      "maxFileSize": "5GB",
+      "concurrentUploads": 3,
+      "retryAttempts": 3,
+      "timeout": 30000,
+      "compressionEnabled": false,
+      "lazyLoading": true,
+      "cacheStrategy": "aggressive"
+    },
+    
+    "ui": {
+      "animationDuration": "300ms",
+      "transitionEasing": "ease-out",
+      "loadingSpinnerDelay": "500ms",
+      "notificationDuration": "3000ms",
+      "tooltipDelay": "800ms",
+      "hoverEffectDelay": "150ms",
+      "autoHideProgress": true,
+      "smoothScrolling": true
+    },
+    
+    "accessibility": {
+      "highContrast": false,
+      "reducedMotion": "respect-user-preference",
+      "screenReaderSupport": true,
+      "keyboardNavigation": true,
+      "focusIndicators": true,
+      "ariaLabels": true,
+      "semanticHtml": true
+    },
+    
+    "localization": {
+      "defaultLanguage": "ar",
+      "supportedLanguages": ["ar", "en"],
+      "dateFormat": "dd/mm/yyyy",
+      "numberFormat": "arabic-indic",
+      "textDirection": "rtl",
+      "fontFamily": "Tajawal"
+    },
+    
+    "theme": {
+      "default": "light",
+      "allowUserToggle": true,
+      "systemThemeDetection": true,
+      "customThemes": false,
+      "colorBlindnessSupport": false
+    },
+    
+    "security": {
+      "allowedFileTypes": [
+        ".las", ".laz", ".ply", ".xyz", ".pts", ".ptx", 
+        ".e57", ".pcd", ".copc", ".json", ".txt"
+      ],
+      "maxFilesPerUpload": 1000,
+      "sanitizeFileNames": true,
+      "virusScanningEnabled": false,
+      "encryptionEnabled": false
+    },
+    
+    "storage": {
+      "defaultPath": "./pointclouds/",
+      "autoCleanup": false,
+      "backupEnabled": false,
+      "compressionEnabled": false,
+      "duplicateDetection": true,
+      "versionControl": false
+    },
+    
+    "api": {
+      "endpoints": {
+        "upload": "/upload-chunk",
+        "projects": "/api/projects",
+        "delete": "/api/projects/{name}",
+        "info": "/api/projects/{name}/info"
+      },
+      "timeout": 30000,
+      "retryPolicy": "exponential-backoff",
+      "rateLimit": "100/minute",
+      "cors": true
+    },
+    
+    "logging": {
+      "level": "info",
+      "enableConsoleLogging": true,
+      "enableFileLogging": false,
+      "logRotation": false,
+      "maxLogSize": "10MB",
+      "retentionDays": 30
+    },
+    
+    "monitoring": {
+      "performanceMetrics": false,
+      "errorTracking": true,
+      "usageAnalytics": false,
+      "uptime": true,
+      "alerting": false
+    },
+    
+    "experimental": {
+      "webWorkers": false,
+      "serviceWorker": false,
+      "wasmAcceleration": false,
+      "gpuAcceleration": false,
+      "ml": false
+    },
+    
+    "compatibility": {
+      "minBrowserVersions": {
+        "chrome": "80",
+        "firefox": "75",
+        "safari": "13",
+        "edge": "80"
+      },
+      "polyfillsIncluded": [
+        "fetch",
+        "promise",
+        "intersectionObserver"
+      ],
+      "gracefulDegradation": true
+    },
+    
+    "development": {
+      "debugMode": false,
+      "sourceMapEnabled": false,
+      "hotReload": false,
+      "linting": true,
+      "testing": false,
+      "documentation": true
+    },
+    
+    "build": {
+      "minification": false,
+      "bundling": false,
+      "optimization": "basic",
+      "targetSize": "500KB",
+      "compressionLevel": "medium"
+    }
+  },
+  
+  "customization": {
+    "branding": {
+  "logo": "../../resources/logo_small.png",
+  "favicon": "../../resources/logo_small.png",
+      "title": "Potree Manager",
+      "subtitle": "رفع وإدارة مشاريع السحابات النقطية",
+      "colors": {
+        "primary": "#1E88E5",
+        "secondary": "#FF9800",
+        "accent": "#4CAF50"
+      }
+    },
+    
+    "layout": {
+      "maxWidth": "1200px",
+      "navbarHeight": "64px",
+      "sidebarWidth": "280px",
+      "contentPadding": "32px",
+      "cardBorderRadius": "12px",
+      "buttonBorderRadius": "8px"
+    },
+    
+    "typography": {
+      "primaryFont": "Tajawal",
+      "fallbackFonts": ["Cairo", "system-ui", "sans-serif"],
+      "baseFontSize": "16px",
+      "lineHeight": "1.6",
+      "fontWeights": {
+        "light": 300,
+        "normal": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      }
+    },
+    
+    "spacing": {
+      "unit": "4px",
+      "scale": [1, 2, 4, 6, 8, 12, 16],
+      "containerPadding": "24px",
+      "sectionMargin": "48px",
+      "elementGap": "16px"
+    },
+    
+    "animations": {
+      "enabled": true,
+      "respectReducedMotion": true,
+      "defaultDuration": "300ms",
+      "defaultEasing": "ease-out",
+      "staggerDelay": "100ms"
+    }
+  },
+  
+  "integrations": {
+    "potreeViewer": {
+      "enabled": true,
+  "viewerPath": "../../examples/Index.html",
+      "defaultParams": {
+        "autoplay": false,
+        "background": "skybox",
+        "pointSize": 1.0,
+        "fov": 75
+      }
+    },
+    
+    "analytics": {
+      "enabled": false,
+      "provider": "none",
+      "trackingId": "",
+      "events": [
+        "file_upload",
+        "project_view", 
+        "project_delete",
+        "search_query"
+      ]
+    },
+    
+    "cloudStorage": {
+      "enabled": false,
+      "providers": [],
+      "autoSync": false,
+      "encryption": false
+    }
+  }
+}

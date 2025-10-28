@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدير ملفات PointVista 3D - رفع وإدارة مشاريع السحابة النقطية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="file_manager.css">
+    <link rel="icon" href="../../resources/pointvista_logo.png" onerror="this.href='../../resources/logo_small.png'">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="../../resources/pointvista_logo.png" alt="PointVista 3D" class="logo" onerror="this.onerror=null;this.src='../../resources/logo_small.png';">
+                <span class="brand-text">PointVista 3D Manager</span>
+            </div>
+            <div class="navbar-subtitle">
+                رفع وإدارة مشاريع السحابات النقطية
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-emoji">☁️</span>
+                    رفع مشروع جديد
+                </h2>
+                <p class="section-description">اختر المجلد المحتوي على ملفات السحابة النقطية</p>
+            </div>
+
+            <div class="upload-card">
+                <form id="uploadForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="fileInput" class="form-label">
+                            <span class="label-emoji">📂</span>
+                            اختر مجلد المشروع
+                        </label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="fileInput" required webkitdirectory directory multiple class="file-input">
+                            <div class="file-input-placeholder">
+                                <span class="placeholder-icon">📁</span>
+                                <span class="placeholder-text">اضغط لتحديد مجلد المشروع</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fileNameInput" class="form-label">
+                            <span class="label-emoji">🏷️</span>
+                            اسم المشروع
+                        </label>
+                        <input 
+                            type="text" 
+                            id="fileNameInput" 
+                            placeholder="أدخل اسم المشروع..." 
+                            required 
+                            class="form-input"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">☁️</span>
+                        <span class="btn-text">رفع المشروع</span>
+                    </button>
+                </form>
+
+                <!-- Progress Bar -->
+                <div id="progressContainer" class="progress-container" style="display: none;">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4 class="progress-title">
+                                <span class="progress-emoji">⏳</span>
+                                جاري رفع المشروع...
+                            </h4>
+                            <div class="progress-details">
+                                <span id="progressStats" class="progress-stats">
+                                    <span id="filesProgress">0/0 ملف</span> • 
+                                    <span id="uploadSpeed">0 KB/s</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="progress-controls">
+                            <span id="progressText" class="progress-percentage">0%</span>
+                            <button id="cancelUpload" class="btn-cancel" title="إلغاء الرفع">
+                                <span>❌</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bars">
+                        <!-- شريط التقدم الإجمالي -->
+                        <div class="progress-bar-container">
+                            <label class="progress-label">التقدم الإجمالي</label>
+                            <div class="progress-bar">
+                                <div id="uploadProgress" class="progress-fill"></div>
+                            </div>
+                            <div class="progress-size-info">
+                                <span id="uploadedSize">0 B</span> / <span id="totalSize">0 B</span>
+                            </div>
+                        </div>
+                        
+                        <!-- تمت إزالة قسم "الملف الحالي" بالكامل حسب الطلب -->
+                    </div>
+                    
+                    
+                    
+                    <!-- إحصائيات مفصلة -->
+                    <div class="detailed-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">📊</span>
+                            <span class="stat-label">معدل السرعة:</span>
+                            <span id="avgSpeed" class="stat-value">0 KB/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-label">أعلى سرعة:</span>
+                            <span id="maxSpeed" class="stat-value">0 KB/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🔄</span>
+                            <span class="stat-label">حالة الاتصال:</span>
+                            <span id="connectionStatus" class="stat-value">متصل</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">💾</span>
+                            <span class="stat-label">البيانات المرسلة:</span>
+                            <span id="totalDataSent" class="stat-value">0 B</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects List Section -->
+        <div class="projects-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-emoji">📊</span>
+                    قائمة المشاريع
+                    <span id="projectCount" class="project-count">12 مشروع</span>
+                </h2>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="ابحث في المشاريع..." 
+                            class="search-input"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Table -->
+            <div class="table-container">
+                <table id="filesTable" class="projects-table">
+                    <thead>
+                        <tr>
+                            <th class="col-id">المعرف</th>
+                            <th class="col-name">اسم المشروع</th>
+                            <th class="col-size">الحجم</th>
+                            <th class="col-date">تاريخ الإنشاء</th>
+                            <th class="col-actions">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- سيتم تعبئة الصفوف هنا عبر جافاسكربت -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">جاري تحميل المشاريع...</p>
+        </div>
+    </div>
+
+    <script src="file_manager.js"></script>
+    <script src="interactions.js"></script>
+</body>
+</html>
