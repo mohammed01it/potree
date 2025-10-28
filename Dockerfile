@@ -42,6 +42,12 @@ COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
 # Also copy any top-level pages (e.g. page/login) that are not included in the build output
 COPY --from=builder /app/page/ /usr/share/nginx/html/page/
+# Copy examples so example HTML pages are available at /examples/
+COPY --from=builder /app/examples/ /usr/share/nginx/html/examples/
+# Ensure common static folders are present (libs, build, resources)
+COPY --from=builder /app/libs/ /usr/share/nginx/html/libs/
+COPY --from=builder /app/build/ /usr/share/nginx/html/build/
+COPY --from=builder /app/resources/ /usr/share/nginx/html/resources/
 
 EXPOSE 80
 

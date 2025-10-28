@@ -95,7 +95,8 @@
 		}
 
 		(async () => {
-			let name = getQueryParam('r') || 'testt';
+			// Default project name when no ?r= provided; changed to 'test' (was 'testt')
+			let name = getQueryParam('r') || 'test';
 			let path;
 			try {
 				path = await resolvePointcloudPath(name);
