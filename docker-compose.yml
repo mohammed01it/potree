@@ -9,10 +9,16 @@ services:
     container_name: potree_vps_ubuntu24
     ports:
       - "3000:80" # host:container (hostPort:containerPort)
+      - "80:80"
+      - "443:443"
     restart: unless-stopped
     # Mount local pointclouds directory (optional) so you can update data without rebuilding
     volumes:
       - ./pointclouds:/usr/share/nginx/html/pointclouds:ro
+      # Mount Let's Encrypt certs and challenge webroot into nginx container
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - certbot-www:/var/www/certbot
     healthcheck:
       test: ["CMD-SHELL","wget -qO- http://localhost/ || exit 1"]
       interval: 30s
@@ -31,5 +37,22 @@ services:
     environment:
       - PORT=3000
     restart: unless-stopped
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: potree_certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - certbot-www:/var/www/certbot
+    # Keep container running to auto-renew every 12h
+    entrypoint: sh
+    command: -c "trap exit TERM; while :; do certbot renew --non-interactive --no-eff-email --agree-tos; sleep 12h & wait $!; done"
+    restart: unless-stopped
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  certbot-www:
 
  
