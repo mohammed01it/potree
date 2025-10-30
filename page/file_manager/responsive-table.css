@@ -1,0 +1,717 @@
+/* ===== Mobile Responsive Card Design ===== */
+
+/* إزالة السكرول الأفقي تماماً من كل الصفحة */
+html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+}
+
+.main-container,
+.projects-section,
+.upload-section,
+.table-container {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* إخفاء scrollbar أفقي على جميع العناصر */
+* {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* إخفاء scrollbar بشكل عام */
+::-webkit-scrollbar-track:horizontal {
+    display: none !important;
+}
+
+::-webkit-scrollbar:horizontal {
+    display: none !important;
+    height: 0 !important;
+}
+
+/* التصميم الافتراضي - شاشات كبيرة */
+@media screen and (min-width: 769px) {
+    .projects-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow-x: visible;
+    }
+    
+    .projects-table thead {
+        display: table-header-group;
+    }
+    
+    .projects-table tbody {
+        display: table-row-group;
+    }
+    
+    .projects-table tr {
+        display: table-row;
+    }
+    
+    .projects-table td {
+        display: table-cell;
+    }
+}
+
+/* شاشات متوسطة وصغيرة - تصميم الكاردات */
+@media screen and (max-width: 768px) {
+    /* إزالة السكرول الأفقي */
+    body,
+    html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+    
+    .table-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        background: transparent;
+        box-sizing: border-box !important;
+    }
+
+    .projects-table {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px;
+        border: none;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .projects-table thead {
+        display: none !important;
+    }
+    
+    .projects-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .projects-table tr,
+    .projects-table tr.fade-in,
+    .projects-table tbody tr {
+        display: flex !important;
+        flex-direction: column !important;
+        background: linear-gradient(145deg, #2a3947, #1e2a36) !important;
+        border-radius: 12px !important;
+        padding: 14px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+        border: 1px solid rgba(30, 136, 229, 0.2) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        cursor: default !important;
+        position: relative !important;
+    }
+    
+    /* تأثير عند التحويم */
+    .projects-table tr:hover,
+    .projects-table tr.fade-in:hover,
+    .projects-table tbody tr:hover {
+        transform: translateY(-4px) scale(1.02) !important;
+        box-shadow: 0 8px 30px rgba(30, 136, 229, 0.4) !important;
+        background: linear-gradient(145deg, #2f3f4f, #23303d) !important;
+        border-color: rgba(30, 136, 229, 0.5) !important;
+    }
+    
+    /* تأثير عند الضغط */
+    .projects-table tr:active,
+    .projects-table tr.fade-in:active,
+    .projects-table tbody tr:active {
+        transform: translateY(-2px) scale(0.98) !important;
+        box-shadow: 0 4px 15px rgba(30, 136, 229, 0.6) !important;
+    }
+    
+    .projects-table td {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center;
+        padding: 6px 0 !important;
+        border: none !important;
+        text-align: right;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: 30px !important;
+    }
+    
+    /* التأكد من ظهور جميع الخلايا */
+    .projects-table td:nth-child(1),
+    .projects-table td:nth-child(2),
+    .projects-table td:nth-child(3),
+    .projects-table td:nth-child(4),
+    .projects-table td:nth-child(5) {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* معرف المشروع - أعلى الكارد */
+    .projects-table td:nth-child(1) {
+        order: 1 !important;
+        justify-content: center !important;
+        background: rgba(30, 136, 229, 0.15) !important;
+        border: 1px solid rgba(30, 136, 229, 0.3) !important;
+        border-radius: 8px !important;
+        padding: 5px 14px !important;
+        font-size: 0.8em !important;
+        font-weight: 700 !important;
+        color: #64B5F6 !important;
+        width: fit-content !important;
+        margin: 0 auto 10px auto !important;
+        box-shadow: 0 2px 8px rgba(30, 136, 229, 0.2) !important;
+    }
+    
+    .projects-table td:nth-child(1)::before {
+        content: "🆔 " !important;
+        margin-left: 6px;
+        font-size: 1.1em;
+    }
+    
+    /* اسم المشروع - عنوان بارز */
+    .projects-table td:nth-child(2) {
+        order: 2 !important;
+        font-size: 1.15em !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        margin-bottom: 12px !important;
+        padding: 10px 0 !important;
+        border-bottom: 2px solid rgba(30, 136, 229, 0.3) !important;
+        word-break: break-word !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        width: 100% !important;
+        user-select: none !important;
+    }
+    
+    /* حاوية المعلومات - الحجم */
+    .projects-table td:nth-child(3) {
+        order: 3 !important;
+        font-size: 0.9em !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        padding: 8px 12px !important;
+        border-radius: 8px !important;
+        margin: 4px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        backdrop-filter: blur(10px) !important;
+        width: 100% !important;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* أيقونة الحجم */
+    .projects-table td:nth-child(3)::before {
+        content: "💾 " !important;
+        margin-left: 8px;
+        font-size: 1.2em;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* التاريخ */
+    .projects-table td:nth-child(4) {
+        order: 4 !important;
+        font-size: 0.9em !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        padding: 8px 12px !important;
+        border-radius: 8px !important;
+        margin: 4px 0 !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        backdrop-filter: blur(10px) !important;
+        width: 100% !important;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* أيقونة التاريخ */
+    .projects-table td:nth-child(4)::before {
+        content: "📅 " !important;
+        margin-left: 8px;
+        font-size: 1.2em;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* حاوية الأزرار - أسفل الكارد - التأكد من ظهورها دائماً */
+    .projects-table td:nth-child(5),
+    .projects-table td:last-child,
+    .projects-table td.actions-cell {
+        order: 5 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        border-top: 1px solid rgba(30, 136, 229, 0.2) !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 50px !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+    
+    /* تصميم الأزرار - التأكد من ظهورها */
+    .projects-table td:nth-child(5) button,
+    .projects-table td:nth-child(5) a,
+    .projects-table td:last-child button,
+    .projects-table td:last-child a,
+    .projects-table td.actions-cell button,
+    .projects-table td.actions-cell a,
+    .projects-table .action-btn,
+    .projects-table .btn-view,
+    .projects-table .btn-copy,
+    .projects-table .btn-delete {
+        flex: 1 1 auto !important;
+        min-width: 80px !important;
+        max-width: 130px !important;
+        padding: 10px 14px !important;
+        border-radius: 8px !important;
+        font-size: 0.9em !important;
+        font-weight: 600 !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+        text-decoration: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        color: white !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+        position: relative !important;
+        z-index: 10 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* ألوان الأزرار المحددة */
+    .projects-table .btn-view,
+    .projects-table a[href*="Index.html"],
+    .projects-table button[onclick*="viewProject"],
+    .projects-table td:nth-child(5) .btn-view,
+    .projects-table td:nth-child(5) a[href*="Index.html"] {
+        background: linear-gradient(135deg, #2196F3, #1565C0) !important;
+        border-color: rgba(33, 150, 243, 0.3) !important;
+    }
+    
+    .projects-table .btn-view:hover,
+    .projects-table a[href*="Index.html"]:hover {
+        background: linear-gradient(135deg, #1976D2, #0D47A1) !important;
+        box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4) !important;
+    }
+    
+    .projects-table .btn-copy,
+    .projects-table button[onclick*="copyUrl"],
+    .projects-table td:nth-child(5) .btn-copy {
+        background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;
+        border-color: rgba(76, 175, 80, 0.3) !important;
+    }
+    
+    .projects-table .btn-copy:hover {
+        background: linear-gradient(135deg, #388E3C, #1B5E20) !important;
+        box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4) !important;
+    }
+    
+    .projects-table .btn-delete,
+    .projects-table button[onclick*="deleteFolder"],
+    .projects-table td:nth-child(5) .btn-delete {
+        background: linear-gradient(135deg, #F44336, #C62828) !important;
+        border-color: rgba(244, 67, 54, 0.3) !important;
+    }
+    
+    .projects-table .btn-delete:hover {
+        background: linear-gradient(135deg, #D32F2F, #B71C1C) !important;
+        box-shadow: 0 5px 20px rgba(244, 67, 54, 0.4) !important;
+    }
+    
+    .projects-table td:nth-child(5) button:hover,
+    .projects-table td:nth-child(5) a:hover,
+    .projects-table td:last-child button:hover,
+    .projects-table td:last-child a:hover,
+    .projects-table .action-btn:hover {
+        transform: translateY(-3px) !important;
+    }
+    
+    .projects-table td:nth-child(5) button:active,
+    .projects-table td:nth-child(5) a:active,
+    .projects-table .action-btn:active {
+        transform: translateY(-1px) !important;
+    }
+}
+
+/* شاشات صغيرة جداً */
+@media screen and (max-width: 480px) {
+    .table-container {
+        padding: 10px !important;
+    }
+    
+    .projects-table {
+        gap: 12px !important;
+    }
+    
+    .projects-table tbody {
+        gap: 12px !important;
+    }
+    
+    .projects-table tr,
+    .projects-table tr.fade-in,
+    .projects-table tbody tr {
+        padding: 14px !important;
+        border-radius: 10px !important;
+    }
+    
+    .projects-table td:nth-child(1) {
+        font-size: 0.75em !important;
+        padding: 4px 12px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .projects-table td:nth-child(2) {
+        font-size: 1.05em !important;
+        margin-bottom: 10px !important;
+        padding: 8px 0 !important;
+    }
+    
+    .projects-table td:nth-child(3),
+    .projects-table td:nth-child(4) {
+        font-size: 0.85em !important;
+        padding: 7px 10px !important;
+        margin: 3px 0 !important;
+    }
+    
+    .projects-table td:nth-child(5),
+    .projects-table td:last-child,
+    .projects-table td.actions-cell {
+        gap: 6px !important;
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        min-height: 45px !important;
+    }
+    
+    .projects-table td:nth-child(5) button,
+    .projects-table td:nth-child(5) a,
+    .projects-table td:last-child button,
+    .projects-table td:last-child a,
+    .projects-table .action-btn {
+        min-width: 70px !important;
+        max-width: 110px !important;
+        padding: 8px 12px !important;
+        font-size: 0.85em !important;
+    }
+}
+
+/* شاشات صغيرة للغاية */
+@media screen and (max-width: 360px) {
+    .table-container {
+        padding: 8px !important;
+    }
+    
+    .projects-table {
+        gap: 10px !important;
+    }
+    
+    .projects-table tbody {
+        gap: 10px !important;
+    }
+    
+    .projects-table tr,
+    .projects-table tr.fade-in,
+    .projects-table tbody tr {
+        padding: 12px !important;
+        border-radius: 8px !important;
+    }
+    
+    .projects-table td:nth-child(1) {
+        font-size: 0.7em !important;
+        padding: 3px 10px !important;
+    }
+    
+    .projects-table td:nth-child(2) {
+        font-size: 1em !important;
+        padding: 6px 0 !important;
+    }
+    
+    .projects-table td:nth-child(3),
+    .projects-table td:nth-child(4) {
+        font-size: 0.8em !important;
+        padding: 6px 8px !important;
+        margin: 2px 0 !important;
+    }
+    
+    .projects-table td:nth-child(5),
+    .projects-table td:last-child,
+    .projects-table td.actions-cell {
+        gap: 5px !important;
+        margin-top: 8px !important;
+        padding-top: 8px !important;
+        min-height: 40px !important;
+    }
+    
+    .projects-table td:nth-child(5) button,
+    .projects-table td:nth-child(5) a,
+    .projects-table td:last-child button,
+    .projects-table td:last-child a,
+    .projects-table .action-btn {
+        min-width: 65px !important;
+        max-width: 100px !important;
+        padding: 7px 10px !important;
+        font-size: 0.8em !important;
+        gap: 4px !important;
+    }
+}
+
+/* ===== إصلاح نهائي للتأكد من ظهور جميع العناصر ===== */
+@media screen and (max-width: 768px) {
+    /* التأكد من ظهور جميع خلايا الجدول */
+    .projects-table td {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    /* التأكد من ظهور حاوية الأزرار */
+    .action-buttons {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        justify-content: center !important;
+    }
+    
+    /* التأكد من ظهور الأزرار نفسها */
+    .action-buttons .btn,
+    .action-buttons button,
+    .action-buttons a {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 100 !important;
+    }
+    
+    /* إزالة أي خصائص قد تخفي العناصر */
+    .projects-table * {
+        max-height: none !important;
+    }
+    
+    /* التأكد من أن خلية الإجراءات لا تُخفى */
+    .projects-table .col-actions,
+    .projects-table td[data-label="الإجراءات"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* إصلاح للشاشات الصغيرة جداً */
+@media screen and (max-width: 480px) {
+    .action-buttons .btn {
+        font-size: 0.75em !important;
+        padding: 6px 10px !important;
+        min-width: 60px !important;
+    }
+    
+    .btn-icon {
+        font-size: 1em !important;
+    }
+    
+    .btn-text {
+        display: inline !important;
+    }
+}
+
+/* إصلاح للشاشات الصغيرة للغاية */
+@media screen and (max-width: 360px) {
+    .action-buttons {
+        gap: 5px !important;
+    }
+    
+    .action-buttons .btn {
+        font-size: 0.7em !important;
+        padding: 5px 8px !important;
+        min-width: 55px !important;
+        gap: 3px !important;
+    }
+}
+
+/* ===== إزالة نهائية لأي scrollbar أفقي ===== */
+@media screen and (max-width: 768px) {
+    /* إخفاء scrollbar الأفقي من جميع العناصر */
+    * {
+        overflow-x: hidden !important;
+    }
+    
+    html {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        position: relative !important;
+    }
+    
+    /* إخفاء scrollbar CSS */
+    ::-webkit-scrollbar:horizontal {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* للمتصفحات الأخرى */
+    * {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    
+    *::-webkit-scrollbar:horizontal {
+        display: none !important;
+    }
+    
+    /* ضمان عدم وجود عناصر تتجاوز الشاشة */
+    .main-container,
+    .projects-section,
+    .upload-section,
+    .table-container,
+    .projects-table,
+    .projects-table tbody,
+    .projects-table tr {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* التأكد التام من ظهور جميع الخلايا - قاعدة نهائية */
+    .projects-table tbody tr td {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* عدم إخفاء أي عمود بشكل نهائي */
+    .col-date,
+    .projects-table td:nth-child(4) {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* الشاشات الصغيرة جداً - عرض عمودي للكاردات */
+@media screen and (max-width: 400px) {
+    .table-container {
+        padding: 4px !important;
+    }
+    
+    .projects-table {
+        gap: 10px !important;
+    }
+    
+    .projects-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    .projects-table tbody tr {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+        margin: 0 !important;
+        padding: 12px !important;
+    }
+}
+
+/* الشاشات الصغيرة للغاية - تقليل المسافات أكثر */
+@media screen and (max-width: 360px) {
+    .table-container {
+        padding: 2px !important;
+    }
+    
+    .projects-table {
+        gap: 8px !important;
+    }
+    
+    .projects-table tbody {
+        gap: 8px !important;
+    }
+    
+    .projects-table tbody tr {
+        padding: 10px !important;
+        border-radius: 10px !important;
+    }
+    
+    .projects-table td {
+        padding: 4px 0 !important;
+    }
+    
+    .projects-table td:nth-child(1) {
+        padding: 4px 10px !important;
+        font-size: 0.75em !important;
+    }
+    
+    .projects-table td:nth-child(2) {
+        font-size: 1.05em !important;
+        padding: 8px 0 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .action-buttons {
+        gap: 6px !important;
+    }
+    
+    .btn {
+        padding: 6px 10px !important;
+        font-size: 0.85em !important;
+    }
+}
+
+

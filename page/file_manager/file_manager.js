@@ -888,42 +888,36 @@ function renderTable() {
     
     // التحقق من حجم الشاشة
     const isMobile = window.innerWidth <= 768;
-    
+
     filtered.forEach(f => {
         const tr = document.createElement('tr');
         tr.classList.add('fade-in');
-        
-        // تنسيق الحجم للموبايل
-        const sizeDisplay = isMobile ? formatSizeCompact(f.size) : f.size;
-        
-        // تنسيق التاريخ باستخدام mtime (لا نعيد تحليل نص محلي)
+
         const fullDate = formatDateFull(f.mtime);
-        // للموبايل نعرض تاريخاً مضغوطاً؛ لسطح المكتب نعرض الكامل
         const dateDisplay = isMobile ? formatDateCompact(f.mtime) : fullDate;
-        const showDate = !isExtraSmallScreen();
-        
-    // عرض الاسم كاملاً دون اقتطاع في جميع الأوضاع
-    const nameDisplay = f.name;
-        
+        const sizeDisplay = isMobile ? formatSizeCompact(f.size) : f.size;
+
+        // Build a single, consistent row template. Use id-based handlers (viewFile/deleteFile/copyLink)
         tr.innerHTML = `
-            <td><strong>${f.id}</strong></td>
-            <td class="project-name" title="${escapeHtml(f.name)}">${escapeHtml(nameDisplay)}</td>
-            <td>
-                <span class="size-badge" title="${f.size}">${sizeDisplay}</span>
-            </td>
-            ${showDate ? `<td><span class="date-text" title="${fullDate}">⏰ ${dateDisplay}</span></td>` : ''}
-            <td class="actions-cell">
-                <button onclick="viewFile(${f.id})" class="action-btn btn-view" title="عرض المشروع">
-                    👁️ عرض
-                </button>
-                <button onclick="deleteFile(${f.id})" class="action-btn btn-delete" title="حذف المشروع">
-                    🗑️ حذف
-                </button>
-                <button onclick="copyLink(${f.id})" class="action-btn btn-copy" title="نسخ رابط المشروع">
-                    📋 نسخ
-                </button>
+            <td data-label="المعرف"><strong>${f.id}</strong></td>
+            <td data-label="اسم المشروع" class="project-name" title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</td>
+            <td data-label="الحجم"><span class="size-badge" title="${f.size}">${sizeDisplay}</span></td>
+            <td data-label="تاريخ الإنشاء"><span class="date-text" title="${fullDate}">⏰ ${dateDisplay}</span></td>
+            <td data-label="الإجراءات" class="col-actions">
+                <div class="action-buttons">
+                    <button onclick="viewFile(${f.id})" class="btn btn-view" title="عرض المشروع">
+                        <span class="btn-icon">👁️</span><span class="btn-text">عرض</span>
+                    </button>
+                    <button onclick="copyLink(${f.id})" class="btn btn-copy" title="نسخ رابط المشروع">
+                        <span class="btn-icon">📋</span><span class="btn-text">نسخ</span>
+                    </button>
+                    <button onclick="deleteFile(${f.id})" class="btn btn-delete" title="حذف المشروع">
+                        <span class="btn-icon">🗑️</span><span class="btn-text">حذف</span>
+                    </button>
+                </div>
             </td>
         `;
+
         tbody.appendChild(tr);
     });
 }
@@ -983,35 +977,20 @@ function renderMobileOptimized() {
     const thead = document.querySelector('#filesTable thead');
     
     if (isExtraSmallScreen()) {
-        // تعديل رؤوس الأعمدة للشاشات الصغيرة
+        // تعديل رؤوس الأعمدة للشاشات الصغيرة - نعرض جميع الأعمدة في الكاردات
         thead.innerHTML = `
             <tr>
                 <th class="col-id">المعرف</th>
                 <th class="col-name">المشروع</th>
                 <th class="col-size">الحجم</th>
-                <th class="col-actions">العمليات</th>
+                <th class="col-date">التاريخ</th>
+                <th class="col-actions">الإجراءات</th>
             </tr>
         `;
         
-        // إخفاء عمود التاريخ في CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @media (max-width: 480px) {
-                .col-date, .projects-table td:nth-child(4) {
-                    display: none !important;
-                }
-                .projects-table {
-                    min-width: 400px !important;
-                }
-            }
-        `;
-        
-        // إزالة الستايل القديم إذا كان موجوداً
+        // إزالة أي ستايل قديم
         const oldStyle = document.getElementById('mobile-table-style');
         if (oldStyle) oldStyle.remove();
-        
-        style.id = 'mobile-table-style';
-        document.head.appendChild(style);
     } else {
         // استعادة الرؤوس الأصلية
         thead.innerHTML = `
